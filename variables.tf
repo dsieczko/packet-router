@@ -8,9 +8,20 @@ variable "project_id" {
   description = "The project id to deploy into"
 }
 
-variable "ipsec_peer_public_ip" {
+
+variable "gre_peer_outer_public_ipaddr" {
   type        = string
-  description = "Public IP of the router you're creating the VPN with"
+  description = "Public IP of the router you're creating the VPN with" 
+}
+
+variable "gre_peer_inner_private_ipaddr" {
+  type        = string
+  description = "Private IP of the router you're creating the VPN with" 
+}
+
+variable "gre_my_inner_private_ipaddr" {
+  type        = string
+  description = "Private IP for your end of the VPN" 
 }
 
 variable "hostname" {
@@ -21,13 +32,13 @@ variable "hostname" {
 
 variable "facility" {
   type        = string
-  default     = "iad2"
+  default     = "dc13"
   description = "Packet Facility to deploy into"
 }
 
 variable "plan" {
   type        = string
-  default     = "c2.medium.x86"
+  default     = "c3.small.x86"
   description = "Packet device type to deploy"
 }
 
@@ -39,7 +50,7 @@ variable "operating_system" {
 
 variable "ipxe_script_url" {
   type        = string
-  default     = "http://s3.codyhill.co/vyos122.ipxe"
+  default     = "http://cdn.vyos.io/ipxe/1.2.5-packet-20200501013409/vyos-ipxe.txt"
   description = "Location of VyOS iPXE script"
 }
 
@@ -62,19 +73,13 @@ variable "bgp_local_asn" {
 
 variable "bgp_neighbor_asn" {
   type        = number
-  default     = 65100
+  default     = 1828
   description = "Neighbor BGP ASN"
-}
-
-variable "ipsec_private_cidr" {
-  type        = string
-  default     = "169.254.254.252/30"
-  description = "IPSec IPs used for BGP peering (/30 usually)"
 }
 
 variable "neighbor_short_name" {
   type        = string
-  default     = "Equinix"
+  default     = "Unitas"
   description = "Friendly name of who you are peering with"
 }
 

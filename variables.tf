@@ -9,19 +9,14 @@ variable "project_id" {
 }
 
 
-variable "gre_peer_outer_public_ipaddr" {
+variable "gre_tun_ipcidr" {
   type        = string
-  description = "Public IP of the router you're creating the VPN with" 
+  description = "Private IP /30 for GRE tunnel"
 }
 
-variable "gre_peer_inner_private_ipaddr" {
+variable "gre_remote_ipaddr" {
   type        = string
-  description = "Private IP of the router you're creating the VPN with" 
-}
-
-variable "gre_my_inner_private_ipaddr" {
-  type        = string
-  description = "Private IP for your end of the VPN" 
+  description = "Public IP for the other end of the GRE tunnel." 
 }
 
 variable "hostname" {

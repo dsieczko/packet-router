@@ -18,17 +18,17 @@ output "BGP_Password" {
   description = "The BGP password for peering"
 }
 
-output "IPSec_Pre_Shared_Key" {
-  value       = random_string.ipsec_psk.result
-  description = "IPSec pre shared key for authentication."
-}
+# output "IPSec_Pre_Shared_Key" {
+#   value       = random_string.ipsec_psk.result
+#   description = "IPSec pre shared key for authentication."
+# }
 
-output "IPSec_Public_IP" {
-  value       = packet_device.router.network.0.address
-  description = "Public IP for IPSec VPN"
-}
+# output "IPSec_Public_IP" {
+#   value       = packet_device.router.network.0.address
+#   description = "Public IP for IPSec VPN"
+# }
 
-output "IPSec_Private_IP_CIDR" {
-  value       = format("%s/%s", cidrhost(var.ipsec_private_cidr, 2), split("/", var.ipsec_private_cidr)[1])
-  description = "Private IP space inside the ipsec tunnel to do BGP peering."
-}
+# output "IPSec_Private_IP_CIDR" {
+#   value       = format("%s/%s", cidrhost(var.ipsec_private_cidr, 2), split("/", var.ipsec_private_cidr)[1])
+#   description = "Private IP space inside the ipsec tunnel to do BGP peering."
+# }

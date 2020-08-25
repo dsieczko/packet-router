@@ -62,9 +62,8 @@ data "template_file" "vyos_config" {
     router_public_gateway_ip      = packet_device.router.network.0.gateway
     router_public_ip_cidr         = format("%s/%s", packet_device.router.network.0.address, packet_device.router.network.0.cidr)
     router_public_ip              = packet_device.router.network.0.address
-    gre_peer_outer_public_ipaddr  = var.gre_peer_outer_public_ipaddr
-    gre_peer_inner_private_ipaddr = var.gre_peer_inner_private_ipaddr
-    gre_my_inner_private_ipaddr   = var.gre_my_inner_private_ipaddr
+    gre_tun_ipcidr                = var.gre_tun_ipcidr
+    gre_remote_ipaddr             = var.gre_remote_ipaddr
   }
 }
 
